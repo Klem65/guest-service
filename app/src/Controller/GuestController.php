@@ -6,9 +6,6 @@ use App\Entity\Guest;
 use App\Repository\GuestRepository;
 use App\Service\GuestService;
 use Doctrine\ORM\EntityManagerInterface;
-use libphonenumber\geocoding\PhoneNumberOfflineGeocoder;
-use libphonenumber\NumberParseException;
-use libphonenumber\PhoneNumberUtil;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -83,7 +80,7 @@ class GuestController extends AbstractController
     #[Route('/api/guest/{id}', name: 'app_guest_update', methods: ['PATCH'])]
     public function update(Request $request, int $id): JsonResponse
     {
-        $guest = $this->guestRepositoxitry->find($id);
+        $guest = $this->guestRepository->find($id);
 
         if (!$guest) {
             return $this->json(['message' => 'Guest not found'], Response::HTTP_NOT_FOUND);

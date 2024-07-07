@@ -37,7 +37,7 @@ docker compose exec php php bin/console doctrine:migrations:migrate
 
 Получить запись гостя по id
 ```bash
-curl --location 'http://localhost:8080/info?id=1'
+curl --location 'http://localhost:8080/api/guest/1'
 ```
 
 Получить все записи гостей
